@@ -1,317 +1,110 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Rahul Das — Physics | PhD Applicant</title>
-  <meta name="description" content="Rahul Das — Physics undergraduate. Research interests: atomic physics, quantum mechanics, laser cooling, computational simulation. CV and projects.">
-  <meta name="author" content="Rahul Das">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Website</title>
 
-  <!-- Open Graph for nicer previews when sharing -->
-  <meta property="og:title" content="Rahul Das — Physics">
-  <meta property="og:description" content="Research: atomic physics, quantum mechanics, laser cooling, computational simulations.">
-  <meta property="og:type" content="website">
-  <!-- If you upload a preview image, update the URL below -->
-  <!-- <meta property="og:image" content="https://rahul20221111-ship-it.github.io/profile.jpg"> -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
 
-  <style>
-.inline-list {
-  list-style-type: disc;
-  padding-left: 20px;
-}
+        .container {
+            max-width: 700px;
+            background: white;
+            padding: 25px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
 
-.inline-list li {
-  display: inline-block;
-  margin-right: 20px;
-}
-    :root{
-      --max-width: 900px;
-      --accent: #0b63ff;
-      --muted: #606770;
-      --bg: #ffffff;
-      --card: #fafbff;
-      --radius: 12px;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color: #111;
-    }
-    html,body{height:100%;}
-    body{
-      margin:0;
-      background:var(--bg);
-      display:flex;
-      align-items:flex-start;
-      justify-content:center;
-      padding:28px;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
+        h1 {
+            text-align: center;
+        }
 
-    .container{
-      width:100%;
-      max-width:var(--max-width);
-    }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background: black;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
 
-    header{
-      display:flex;
-      gap:20px;
-      align-items:center;
-      background:var(--card);
-      padding:20px;
-      border-radius:var(--radius);
-      box-shadow:0 6px 18px rgba(15,20,30,0.06);
-    }
+        button:hover {
+            opacity: 0.8;
+        }
 
-    .avatar{
-      width:92px;
-      height:92px;
-      border-radius:8px;
-      object-fit:cover;
-      border:2px solid rgba(11,99,255,0.06);
-      background:#e9eefc;
-      flex-shrink:0;
-    }
+        input[type="text"] {
+            padding: 8px;
+            width: 100%;
+            margin-top: 8px;
+            margin-bottom: 12px;
+        }
 
-    .title{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-    .title h1{
-      margin:0;
-      font-size:20px;
-      letter-spacing:0.2px;
-    }
-    .title p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-    }
-
-    nav.topnav{
-      margin-top:16px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .btn{
-      display:inline-block;
-      padding:8px 12px;
-      font-size:13px;
-      border-radius:8px;
-      text-decoration:none;
-      color:var(--accent);
-      border:1px solid rgba(11,99,255,0.12);
-      background:transparent;
-    }
-
-    main{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns: 1fr 300px;
-      gap:20px;
-    }
-
-    @media (max-width:880px){
-      main{ grid-template-columns: 1fr; }
-      .rightcol{ order: -1; }
-    }
-
-    .card{
-      background:var(--card);
-      padding:18px;
-      border-radius:12px;
-      box-shadow:0 6px 18px rgba(15,20,30,0.04);
-    }
-
-    h2{ margin:0 0 12px 0; font-size:18px; }
-    p{ color:var(--muted); margin:0 0 12px 0; line-height:1.5; }
-    ul{ margin:0 0 12px 1rem; color:var(--muted); }
-    .muted{ color:var(--muted); font-size:14px; }
-
-    .project{
-      margin-bottom:12px;
-      padding-bottom:10px;
-      border-bottom:1px dashed rgba(0,0,0,0.04);
-    }
-    .project a{ color:var(--accent); text-decoration:none; font-weight:600; }
-    .small{ font-size:13px; color:var(--muted); }
-
-    .contact-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
-    .contact-list a{ color:var(--accent); text-decoration:none; word-break:break-all; }
-
-    footer{
-      margin-top:18px;
-      color:var(--muted);
-      font-size:13px;
-      text-align:center;
-    }
-
-    /* subtle divider for sections */
-    .divider{ height:1px; background:linear-gradient(90deg, transparent, rgba(0,0,0,0.04), transparent); margin:14px 0; border-radius:2px; }
-  </style>
+        .output {
+            margin-top: 20px;
+            padding: 12px;
+            background: #eee;
+            border-radius: 6px;
+            min-height: 20px;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="container">
+    <div class="container">
+        <h1>Testing Website</h1>
 
-    <header>
-      <!-- Replace profile.jpg with the filename you upload to the repo (or remove <img> if you don't want an image) -->
-      <img src="profile.jpg" alt="Rahul Das" class="avatar" onerror="this.style.display='none'">
-      <div class="title">
-        <h1>Rahul Das</h1>
-        <p>Researcher in Atomic and Molecular Optics with experience in ultracold atoms and optical
-systems.</p>
-        <nav class="topnav">
-          <!-- Update the links below if you place pages in subfiles -->
-          <a class="btn" href="#research">Research</a>
-          <a class="btn" href="#projects">Projects</a>
-          <a class="btn" href="#cv">CV</a>
-          <a class="btn" href="#contact">Contact</a>
-          <a class="btn" href="#Quick Info">Quick Info</a>
-          <a class="btn" href="#Publications and Pre-Prints">Publications and Pre-Prints</a>
-        </nav>
-      </div>
-    </header>
+        <h3>Button Test</h3>
+        <button onclick="alert('Button Clicked!')">Click Me</button>
 
-    <main>
-      <!-- Left column: main content -->
-      <section>
-        <div id="about" class="card">
-          <h2>About</h2>
-          <p>
-            I am a physics student focused on experimental and computational atomic physics.
-            My current work includes simulations of cold-atom dynamics, numerical modelling of trapping potentials,
-            and projects related to Atomic Physics.
-          </p>
+        <hr>
 
-          <div class="divider"></div>
+        <h3>Input Test</h3>
+        <input type="text" id="testInput" placeholder="Type something here">
+        <button onclick="showText()">Show Text</button>
 
-<h2 id="research">Research Interests</h2>
+        <div class="output" id="outputBox"></div>
 
-<ul class="inline-list">
-  <li>Atomic & Molecular Physics</li>
-  <li>Ultracold Atoms</li>
-  <li>Computational Physics</li>
-  <li>Quantum Optics</li>
-  <li>Spectroscopy</li>
-</ul>
-        <div id="projects" class="card" style="margin-top:16px;">
-          <h2>Selected Projects</h2>
-<div class="project">
-  <a href="https://github.com/rahul20221111-ship-it/Maxwell_Boltmann_Simulation" 
-     target="_blank" rel="noopener">
-    Simulation of Ultracold Atoms in a Harmonic Trap Under Sudden Quenches
-  </a>
-  
-  <div class="small">
-    YouTube Video Animation: 
-    <a href="https://www.youtube.com/watch?v=VNcBVEtpqXA" target="_blank" rel="noopener">
-      YouTube Demonstration
-    </a>
-  </div>
-</div>
+        <hr>
 
+        <h3>Console Test</h3>
+        <button onclick="console.log('Console log working!')">
+            Log to Console
+        </button>
 
-        <div id="Publications and Pre-Prints" class="card" style="margin-top:16px;">
-<h2>Publications and pre-prints</h2>
-<p class="muted">Research Internship Reports as Preprints</p>
+        <hr>
 
-<div class="pub">
-  <p><strong>1. R. Das, K. Gope</strong>, 
-  <em>A Classical Perspective on Dissociative Electron Attachment in Ozone: Pedagogical Insights</em>, 
-  Zenodo Preprint, v1 (2025).<br>
-  DOI: <a href="https://doi.org/10.5281/zenodo.16575140" target="_blank">10.5281/zenodo.16575140</a>
-  </p>
-</div>
+        <h3>API Test (Dummy)</h3>
+        <button onclick="fetchData()">Fetch Data</button>
+        <div class="output" id="apiOutput">Awaiting API call...</div>
+    </div>
 
-<div class="pub">
-  <p><strong>2. R. Das, L. Khaykovich</strong>,
-  <em>Design and Characterization of Essential Components for a Magneto-Optical Trap</em>, 
-  Zenodo Preprint, v2 (2025).<br>
-  DOI: <a href="https://doi.org/10.5281/zenodo.16758110" target="_blank">10.5281/zenodo.16758110</a>
-  </p>
-</div>
+    <script>
+        function showText() {
+            const text = document.getElementById("testInput").value;
+            document.getElementById("outputBox").innerText = "You typed: " + text;
+        }
 
-<div class="pub">
-  <p><strong>3. R. Das, L. Khaykovich</strong>,
-  <em>Simulation of Ultracold Atoms inside a Harmonic Trap</em>, 
-  Zenodo Preprint, v2 (2025).<br>
-  DOI: <a href="https://doi.org/10.5281/zenodo.17100147" target="_blank">10.5281/zenodo.17100147</a>
-  </p>
-</div>
+        function fetchData() {
+            document.getElementById("apiOutput").innerText = "Fetching...";
 
-<div class="pub">
-  <p><strong>4. R. Das, L. Khaykovich</strong>,
-  <em>Realizing Network Analyzer Functionalities with an RF Signal Generator and Spectrum Analyzer:
-  A Directional-Coupler-Free Approach</em>, 
-  Zenodo Preprint, v3 (2025).<br>
-  DOI: <a href="https://doi.org/10.5281/zenodo.17100248" target="_blank">10.5281/zenodo.17100248</a>
-  </p>
-</div>
-        </div>
-      </section>
-
-      <!-- Right column: CV + contact -->
-      <aside class="rightcol">
-        <div id="cv" class="card">
-          <h2>CV</h2>
-          <p class="muted">Download my academic CV (PDF):</p>
-          <!-- Upload cv.pdf to the repo root -->
-          <p><a class="btn" href="cv.pdf" target="_blank" rel="noopener">Download CV (cv.pdf)</a></p>
-        </div>
-
-        <div id="contact" class="card" style="margin-top:16px;">
-          <h2>Contact</h2>
-          <ul class="contact-list">
-            <!-- Replace with your email. Use the exact string you want visible. -->
-            <li><span class="small">Email:</span> <a href="mailto:rahul_20221111@students.iisertirupati.ac.in">rahul_20221111@students.iisertirupati.ac.in</a></li>
-
-            <!-- GitHub: link to your profile -->
-            <li><span class="small">GitHub:</span> <a href="https://github.com/rahul20221111-ship-it" target="_blank" rel="noopener">github.com/rahul20221111-ship-it</a></li>
-  
-        </div>
-
-        <div id="Quick Info" class="card" style="margin-top:16px;">
-          <h2>Quick Info</h2>
-         <p class="small">Location: Tirupati, Andhra Pradesh</p>
-<p class="muted">
-  ORCID ID: 
-  <a href="https://orcid.org/0009-0001-7070-9029" target="_blank">
-0009-0001-7070-9029
-  </a>
-</p>
-
-<p class="muted">
-  Google Scholar:
-  <a href="https://scholar.google.com/citations?user=RLBk-zsAAAAJ&hl=en&authuser=1" target="_blank">
-    Scholar Profile
-  </a>
-</p>
-
-<p class="muted">
-  ResearchGate:
-  <a href="https://www.researchgate.net/profile/Rahul-Das-52" target="_blank">
-    ResearchGate Profile
-  </a>
-</p>
-        </div>
-      </aside>
-    </main>
-
-    <footer>
-      <div class="small">© Rahul Das — last updated: <!-- updated automatically by you when you edit --> </div>
-    </footer>
-  </div>
-
-  <!-- Optional small JS to smooth-scroll internal links -->
-  <script>
-    (function(){
-      document.querySelectorAll('a[href^="#"]').forEach(function(link){
-        link.addEventListener('click', function(e){
-          var target = document.querySelector(this.getAttribute('href'));
-          if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
-        });
-      });
-    })();
-  </script>
+            fetch("https://jsonplaceholder.typicode.com/posts/1")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("apiOutput").innerText =
+                        "Title: " + data.title;
+                })
+                .catch(() => {
+                    document.getElementById("apiOutput").innerText =
+                        "API Error";
+                });
+        }
+    </script>
 </body>
 </html>
