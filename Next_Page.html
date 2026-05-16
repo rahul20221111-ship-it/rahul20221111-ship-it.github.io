@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Research Page — Rahul Das</title>
+
+  <meta name="description" content="Additional page for Rahul Das — Physics.">
+  <meta name="author" content="Rahul Das">
+
+  <style>
+
+
+
+
+ #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+
+      padding: 10px 14px;
+      font-size: 14px;
+      cursor: pointer;
+
+      border: none;
+      border-radius: 6px;
+      background-color: #007bff;
+      color: white;
+
+      display: none;
+      z-index: 1000;
+    }
+
+
+
+
+
+
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* use contain if you want full visible */
+  border-radius: 12px;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 28px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.2s;
+}
+
+.carousel-btn:hover {
+  background: rgba(0,0,0,0.75);
+}
+
+.carousel-btn.left { left: 10px; }
+.carousel-btn.right { right: 10px; }
+
+
+
+
+footer .small {
+  color: white !important;
+}
+
+
+/* HOMEPAGE BUTTON */
+.btn-homepage {
+  position: relative;           
+  display:inline-block;
+  padding:8px 16px;
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+  color:white;
+  background: linear-gradient(135deg, #0b63ff, #4b9dff);
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.25);
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+  transition:0.25s ease;
+  overflow:hidden;              
+}
+
+.btn-homepage:hover {
+  background: linear-gradient(135deg, #2e7dff, #66adff);
+  box-shadow:0 4px 12px rgba(11,99,255,0.35);
+  transform:translateY(-2px);
+}
+
+.btn-homepage::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:10px;
+  background: linear-gradient(
+    rgba(255,255,255,0.18),
+    transparent 60%
+  );
+  pointer-events:none;
+}
+
+
+/* MAIN THEME */
+:root{
+  --max-width: 900px;
+  --accent: #0b63ff;
+  --muted: #444444;
+  --card: #ffffff;
+  --radius: 12px;
+  color: #000000;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+}
+
+html,body{height:100%;}
+
+body{
+  margin:0;
+
+  /* FIXED BACKGROUND — DOES NOT MOVE WHEN SCROLLING */
+  background-image: url('Website_2_Wallpaper.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;   /* <- THIS LINE FIXES THE PROBLEM */
+
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:28px;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.container{
+  width:100%;
+  max-width:var(--max-width);
+}
+
+/* HEADER */
+header{
+  display:flex;
+  gap:20px;
+  align-items:center;
+  background:var(--card);
+  padding:20px;
+  border-radius:var(--radius);
+  box-shadow:0 6px 18px rgba(15,20,30,0.06);
+}
+
+.avatar{
+  width:92px;
+  height:92px;
+  border-radius:8px;
+  object-fit:cover;
+  border:2px solid rgba(11,99,255,0.06);
+  background:#e9eefc;
+  flex-shrink:0;
+}
+
+.title{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.title h1{
+  margin:0;
+  font-size:20px;
+  letter-spacing:0.2px;
+}
+.title p{
+  margin:0;
+  color:var(--muted);
+  font-size:14px;
+}
+
+/* NAVIGATION BUTTONS */
+nav.topnav{
+  margin-top:16px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.btn{
+  display:inline-block;
+  padding:8px 12px;
+  font-size:13px;
+  border-radius:8px;
+  text-decoration:none;
+  color:var(--accent);
+  border:1px solid rgba(11,99,255,0.12);
+  background:transparent;
+}
+
+/* MAIN LAYOUT */
+main{
+  margin-top:18px;
+}
+
+.card{
+  background:var(--card);
+  padding:18px;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(15,20,30,0.04);
+}
+
+h2{ margin:0 0 12px 0; font-size:18px; }
+p{ color:var(--muted); margin:0 0 12px 0; line-height:1.5; }
+
+footer{
+  margin-top:18px;
+  color:var(--muted);
+  font-size:13px;
+  text-align:center;
+}
+
+  </style>
+</head>
+
+
+
+<script>
+  const images = [
+    "TVM.png",
+    "BarIlan.png",
+"Daniel.png"
+  ];
+
+  let index = 0;
+  let autoplayInterval;
+
+  function showImage() {
+    const img = document.getElementById("carouselImage");
+    img.style.opacity = 0;
+
+    setTimeout(() => {
+      img.src = images[index];
+      img.style.opacity = 1;
+    }, 200);
+  }
+
+  function nextImage() {
+    index = (index + 1) % images.length;
+    showImage();
+    resetAutoplay();
+  }
+
+  function prevImage() {
+    index = (index - 1 + images.length) % images.length;
+    showImage();
+    resetAutoplay();
+  }
+
+  function startAutoplay() {
+    autoplayInterval = setInterval(() => {
+      nextImage();
+    }, 5000); // change image every 3 seconds
+  }
+
+  function resetAutoplay() {
+    clearInterval(autoplayInterval);
+    startAutoplay();
+  }
+
+  // start auto sliding when page loads
+  window.onload = startAutoplay;
+</script>
+
+
+
+
+<body>
+  <div class="container">
+
+    <header>
+      <img src="profile.jpg" alt="Rahul Das" class="avatar" onerror="this.style.display='none'">
+      <div class="title">
+        <h1>Next Page</h1>
+        <p>Research page</p>
+
+        <nav class="topnav">
+          <a class="btn-homepage" href="Website_Tester_1.0.html">← Back to Home</a>
+          <a class="btn" href="#Research at IISER Thiruvananthapuram">Research at IISER Thiruvananthapuram</a>
+          <a class="btn" href="#Research at Bar Ilan University (Israel)">Research at Bar Ilan University (Israel)</a>
+	  <a class="btn" href="#Research at IIT Tirupati">Research at IIT Tirupati</a>
+          <a class="btn" href="#Gallery">Gallery</a>
+        </nav>
+      </div>
+    </header>
+
+
+
+    <main>
+
+
+
+
+      
+<div id="Research at IISER Thiruvananthapuram" class="card" style="margin-top:16px;">
+        <h2>Research at IISER Thiruvananthapuram</h2>
+        <p>Under Professor. Krishnendu Gope (Head of Ultrafast Molecular Dynamics Laboratory)</p>
+
+        <p><b>Classical and Semiclassical modelling of Dissociation Dynamics of Ozone molecule</b></p>
+
+        <p><i>Brief Summary</i></p>
+
+        <p>
+        The ozone molecule (O<sub>3</sub>) is of significant physical interest due to its natural abundance. 
+        In this work, we model the Dissociative Electron Attachment (DEA) process classically and then semiclassically.
+        </p>
+
+        <p>
+        Because full quantum treatment of O<sub>3</sub> is complex, we begin with a simplified triatomic model: 
+        a bent linear chain.
+        </p>
+
+        <p>
+        Ozone exhibits two major DEA channels: (1) a <b>symmetric</b> breakup, where O<sub>2</sub> dominates 
+        vibrational modes, and (2) an <b>antisymmetric</b> breakup, where O<sub>2</sub><sup>−</sup> 
+        dominates rotational modes.
+        </p>
+<P>Refer: <a href="https://doi.org/10.5281/zenodo.16575140" target="_blank">10.5281/zenodo.16575140</a>
+</P>
+
+        <img src="ozone.png" width="800" height="300">
+      </div>
+
+
+
+
+
+<div id="Research at Bar Ilan University (Israel)" class="card" style="margin-top:16px;">
+        <h2>Research at Bar Ilan University (Israel)</h2>
+        <p>Under Professor. Lev Khaykovich (Head of Ultracold Li Atoms Laboratory)</p>
+
+        <p><b>Engeneering various components of a Magneto Optical Trap and Simulation of Ultracold Atoms inside a Harmonic Potential</b></p>
+
+<P>        <p><i>Brief Summary</i></p>
+<list>
+<li> Building a Helmholtz Cage for compensating Earth's Magnetic Field.
+<li> Building an Antenna for Evaporative cooling Step (RF Knife from 1000 MHz - 800MHz for Li atoms).
+<li> Designing a GUI software that controls Signal Generator and RF Spectrum Analyzer (Auto Detection) using Python.
+<li> Simulation of Ultracold atoms inside a Harmonic Potential (Maxwell Boltzmann Paticles).
+<list>
+</P>
+<P>
+ Refer: <a href="https://doi.org/10.5281/zenodo.16758110" target="_blank">10.5281/zenodo.16758110</a>
+</P>
+<P>
+ Refer: <a href="https://doi.org/10.5281/zenodo.17100147" target="_blank">10.5281/zenodo.17100147</a>
+</P>
+<P>
+ Refer: <a href="https://doi.org/10.5281/zenodo.17100248" target="_blank">10.5281/zenodo.17100248</a>
+</P>
+<P>
+ Refer: <a href="https://www.youtube.com/watch?v=VNcBVEtpqXA" target="_blank">YouTube demonstration of the simulation</a>
+</P>
+
+              <img src="MOT_Expanded.drawio.png" width="862" height="350">
+      </div>
+
+
+
+
+
+
+<div id="Research at IIT Tirupati" class="card" style="margin-top:16px;">
+        <h2>Research at IIT Tirupati</h2>
+<p><B>Research Assistant, Indian Institute of Technology (IIT) Tirupati</B></p>
+
+<p>Under Professor. Reetesh Kumar Gangwar</p>
+<p> 2025 - Present </p>
+
+<p><b>Relativistic Atomic Structure Calculations using FAC</b></p>
+
+<p><i>Brief Summary</i></p>
+
+<ul>
+  <li>
+    Performed relativistic atomic structure calculations using FAC to compute 
+    energy levels, transition matrix elements, and oscillator strengths.
+  </li>
+</ul>
+
+ </div>
+
+
+
+
+<div id="Gallery" class="card" style="margin-top:16px;">
+  <h2>Gallery</h2>
+
+  <div class="carousel-container">
+    <img id="carouselImage" src="photo1.png" alt="Image">
+
+    <button class="carousel-btn left" onclick="prevImage()">❮</button>
+    <button class="carousel-btn right" onclick="nextImage()">❯</button>
+  </div>
+</div>
+
+
+    </main>
+<footer>
+  <div class="small">© Rahul Das — Research page (all scientific figures and diagrams are original)</div>
+</footer>
+
+
+  </div>
+
+<button id="backToTop">⬆ Back to Top</button>
+
+
+<script>
+  const btn = document.getElementById("backToTop");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+
+
+</body>
+</html>
