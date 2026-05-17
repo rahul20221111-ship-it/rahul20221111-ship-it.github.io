@@ -234,8 +234,43 @@ background-attachment: fixed;   /* this stops scrolling */
     .divider{ height:1px; background:linear-gradient(90deg, transparent, rgba(0,0,0,0.04), transparent); margin:14px 0; border-radius:2px; }
   </style>
 </head>
+
+
 <body>
-  <div class="container">
+
+<div id="google_translate_element"></div>
+
+<style>
+#google_translate_element {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 999999 !important;
+  background: white;
+  padding: 6px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+</style>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: 'en',
+      includedLanguages: 'zh-CN,hi,de,iw',
+      autoDisplay: false
+    },
+    'google_translate_element'
+  );
+}
+</script>
+
+<script
+src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+
+<div class="container">
 
     <header>
       <!-- Replace profile.jpg with the filename you upload to the repo (or remove <img> if you don't want an image) -->
