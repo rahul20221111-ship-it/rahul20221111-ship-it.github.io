@@ -352,9 +352,10 @@ src="https://translate.google.com/translate_a/element.js?cb=googleTranslateEleme
   flex-wrap:wrap;
 ">
 
-  <input
-    type="text"
-    id="searchBox"
+<input
+  type="text"
+  id="searchBox"
+  onkeydown="handleSearchKey(event)"
     placeholder="Search website content..."
     style="
       width:260px;
@@ -525,110 +526,115 @@ src="https://translate.google.com/translate_a/element.js?cb=googleTranslateEleme
 </script>
 
 
+<script src="https://cdn.jsdelivr.net/npm/mark.js/dist/mark.min.js"></script>
+
 <script>
 
-let matches = [];
-let currentMatch = -1;
+let currentIndex = 0;
+let results = [];
+let lastSearch = "";
 
-function removeHighlights() {
-  document.querySelectorAll(".search-highlight").forEach(el => {
-    const parent = el.parentNode;
-    parent.replaceChild(
-      document.createTextNode(el.textContent),
-      el
-    );
-    parent.normalize();
-  });
-}
+const instance = new Mark(document.body);
 
 function searchPage() {
 
-  removeHighlights();
-
-  matches = [];
-  currentMatch = -1;
-
-  const keyword = document
-    .getElementById("searchBox")
+  const keyword =
+    document.getElementById("searchBox")
     .value
     .trim();
 
-  if (!keyword) return;
+  if(!keyword) return;
 
-  const regex = new RegExp(keyword, "gi");
+  lastSearch = keyword;
 
-  const walker = document.createTreeWalker(
-    document.body,
-    NodeFilter.SHOW_TEXT
-  );
+  instance.unmark({
 
-  let node;
+    done: function() {
 
-  while(node = walker.nextNode()) {
+      instance.mark(keyword, {
 
-    if (
-      node.parentNode.tagName === "SCRIPT" ||
-      node.parentNode.tagName === "STYLE"
-    ) continue;
+        separateWordSearch: false,
 
-    const text = node.nodeValue;
+        className: "search-highlight",
 
-    if(regex.test(text)) {
+        done: function() {
 
-      const span = document.createElement("span");
+          results =
+            document.querySelectorAll(".search-highlight");
 
-      span.innerHTML = text.replace(regex, match =>
-        `<mark class="search-highlight"
-          style="background:yellow;color:black;">
-          ${match}
-        </mark>`
-      );
+          document.getElementById("searchCount")
+            .textContent =
+            results.length + " matches found";
 
-      node.parentNode.replaceChild(span, node);
+          currentIndex = 0;
+
+          if(results.length > 0) {
+            jumpToResult(currentIndex);
+          }
+
+        }
+
+      });
 
     }
-  }
 
-  matches = document.querySelectorAll(".search-highlight");
+  });
 
-  document.getElementById("searchCount").textContent =
-    `${matches.length} matches found`;
-
-  if(matches.length > 0) {
-    currentMatch = 0;
-    scrollToMatch(currentMatch);
-  }
 }
 
-function scrollToMatch(index) {
+function jumpToResult(index) {
 
-  matches[index].scrollIntoView({
+  results[index].scrollIntoView({
     behavior: "smooth",
     block: "center"
   });
 
-  matches[index].style.background = "orange";
-  
+  results[index].style.background = "orange";
+
   setTimeout(() => {
-    matches[index].style.background = "yellow";
-  }, 1200);
+    results[index].style.background = "yellow";
+  }, 700);
+
 }
 
 function nextMatch() {
 
-  if(matches.length === 0) return;
+  if(results.length === 0) return;
 
-  currentMatch++;
+  currentIndex++;
 
-  if(currentMatch >= matches.length) {
-    currentMatch = 0;
+  if(currentIndex >= results.length) {
+    currentIndex = 0;
   }
 
-  scrollToMatch(currentMatch);
+  jumpToResult(currentIndex);
+
+}
+
+function handleSearchKey(event) {
+
+  if(event.key === "Enter") {
+
+    const keyword =
+      document.getElementById("searchBox")
+      .value
+      .trim();
+
+    if(keyword !== lastSearch) {
+
+      searchPage();
+
+    } else {
+
+      nextMatch();
+
+    }
+
+  }
+
 }
 
 </script>
-
 
 
 </body>
