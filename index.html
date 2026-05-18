@@ -310,6 +310,50 @@ systems.</p>
   </div>
 
 </nav>
+
+
+
+<!-- SEARCH BAR -->
+
+
+<div style="
+  margin-top:16px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+">
+
+  <input
+    type="text"
+    id="searchBox"
+    placeholder="Search website content..."
+    style="
+      width:260px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:1px solid rgba(0,0,0,0.15);
+      font-size:14px;
+      outline:none;
+    "
+  >
+
+  <button class="btn" onclick="searchPage()">
+    Search
+  </button>
+
+  <button class="btn" onclick="nextMatch()">
+    Next
+  </button>
+
+  <span id="searchCount" class="small"></span>
+
+</div>
+
+
+
+
       </div>
     </header>
 
@@ -593,6 +637,112 @@ systems.</p>
 
   document.getElementById("lastUpdated").textContent = `${day}-${month}-${year}`;
 </script>
+
+
+<script>
+
+let matches = [];
+let currentMatch = -1;
+
+function removeHighlights() {
+  document.querySelectorAll(".search-highlight").forEach(el => {
+    const parent = el.parentNode;
+    parent.replaceChild(
+      document.createTextNode(el.textContent),
+      el
+    );
+    parent.normalize();
+  });
+}
+
+function searchPage() {
+
+  removeHighlights();
+
+  matches = [];
+  currentMatch = -1;
+
+  const keyword = document
+    .getElementById("searchBox")
+    .value
+    .trim();
+
+  if (!keyword) return;
+
+  const regex = new RegExp(keyword, "gi");
+
+  const walker = document.createTreeWalker(
+    document.body,
+    NodeFilter.SHOW_TEXT
+  );
+
+  let node;
+
+  while(node = walker.nextNode()) {
+
+    if (
+      node.parentNode.tagName === "SCRIPT" ||
+      node.parentNode.tagName === "STYLE"
+    ) continue;
+
+    const text = node.nodeValue;
+
+    if(regex.test(text)) {
+
+      const span = document.createElement("span");
+
+      span.innerHTML = text.replace(regex, match =>
+        `<mark class="search-highlight"
+          style="background:yellow;color:black;">
+          ${match}
+        </mark>`
+      );
+
+      node.parentNode.replaceChild(span, node);
+
+    }
+  }
+
+  matches = document.querySelectorAll(".search-highlight");
+
+  document.getElementById("searchCount").textContent =
+    `${matches.length} matches found`;
+
+  if(matches.length > 0) {
+    currentMatch = 0;
+    scrollToMatch(currentMatch);
+  }
+}
+
+function scrollToMatch(index) {
+
+  matches[index].scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+
+  matches[index].style.background = "orange";
+  
+  setTimeout(() => {
+    matches[index].style.background = "yellow";
+  }, 1200);
+}
+
+function nextMatch() {
+
+  if(matches.length === 0) return;
+
+  currentMatch++;
+
+  if(currentMatch >= matches.length) {
+    currentMatch = 0;
+  }
+
+  scrollToMatch(currentMatch);
+}
+
+</script>
+
 
 </body>
 </html>
