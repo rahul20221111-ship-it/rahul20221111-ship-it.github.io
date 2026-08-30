@@ -7,434 +7,271 @@
   <meta name="description" content="Rahul Das — Physics undergraduate. Research interests: atomic physics, quantum mechanics, laser cooling, computational simulation. CV and projects.">
   <meta name="author" content="Rahul Das">
 
-  <!-- Open Graph -->
+  <!-- Open Graph for nicer previews when sharing -->
   <meta property="og:title" content="Rahul Das — Physics">
   <meta property="og:description" content="Research: atomic physics, quantum mechanics, laser cooling, computational simulations.">
   <meta property="og:type" content="website">
+  <!-- If you upload a preview image, update the URL below -->
+  <!-- <meta property="og:image" content="https://rahul20221111-ship-it.github.io/profile.jpg"> -->
 
   <style>
-    :root {
-      --max-width: 900px;
-      --accent: #0b63ff;
-      --muted: #444444;
-      --card: #ffffff;
-      --radius: 12px;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      color: #000000;
+
+footer .small {
+  color: white !important;
+}
+
+/* BACK TO TOP BUTTON */
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  padding: 10px 14px;
+  font-size: 14px;
+  cursor: pointer;
+
+  border: none;
+  border-radius: 6px;
+  background-color: #007bff;
+  color: white;
+
+  display: none;
+  z-index: 1000;
+}
+
+
+
+.btn-nextpage {
+  position: relative;           /* IMPORTANT — keeps shine inside the button */
+  display:inline-block;
+  padding:8px 16px;
+  font-size:13px;
+  font-weight:600;
+  text-decoration:none;
+  color:white;
+  background: linear-gradient(135deg, #0b63ff, #4b9dff);
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.25);
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+  transition:0.25s ease;
+  overflow:hidden;              /* Prevent shine leaking */
+}
+
+.btn-nextpage:hover {
+  background: linear-gradient(135deg, #2e7dff, #66adff);
+  box-shadow:0 4px 12px rgba(11,99,255,0.35);
+  transform:translateY(-2px);
+}
+
+.btn-nextpage::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:10px;
+  background: linear-gradient(
+    rgba(255,255,255,0.18),
+    transparent 60%
+  );
+  pointer-events:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.inline-list {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.inline-list li {
+  display: inline-block;
+  margin-right: 20px;
+}
+:root{
+  --max-width: 900px;
+
+  /* Accent (link/buttons) */
+  --accent: #0b63ff;
+
+  /* Muted text */
+  --muted: #444444;
+
+  /* Medium grey background */
+
+  /* White cards */
+  --card: #ffffff;
+
+  --radius: 12px;
+
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+
+  /* Global text color */
+  color: #000000;  /* <-- BLACK TEXT */
+}
+
+.full-section{
+  width:100%;
+  background:#ffffff;
+  margin-top:28px;
+  padding:48px 20px;
+}
+
+.full-section-inner{
+  max-width:var(--max-width);
+  margin:0 auto;
+}
+
+
+    html,body{height:100%;}
+    body{
+      margin:0;
+      background:var(--bg);
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:28px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+
+background-image: url('Website_Wallpaper.png');
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+background-attachment: fixed;   /* this stops scrolling */
     }
 
-    html, body {
-      height: 100%;
+    .container{
+      width:100%;
+      max-width:var(--max-width);
     }
 
-    body {
-      margin: 0;
-      background-image: url('Website_Wallpaper.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-attachment: fixed;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 28px 20px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+    header{
+      display:flex;
+      gap:20px;
+      align-items:center;
+      background:var(--card);
+      padding:20px;
+      border-radius:var(--radius);
+      box-shadow:0 6px 18px rgba(15,20,30,0.06);
     }
 
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
+    .avatar{
+      width:92px;
+      height:92px;
+      border-radius:8px;
+      object-fit:cover;
+      border:2px solid rgba(11,99,255,0.06);
+      background:#e9eefc;
+      flex-shrink:0;
     }
 
-    header {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      background: var(--card);
-      padding: 20px;
-      border-radius: var(--radius);
-      box-shadow: 0 6px 18px rgba(15,20,30,0.06);
+    .title{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .title h1{
+      margin:0;
+      font-size:20px;
+      letter-spacing:0.2px;
+    }
+    .title p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
     }
 
-    .avatar {
-      width: 92px;
-      height: 92px;
-      border-radius: 8px;
-      object-fit: cover;
-      border: 2px solid rgba(11,99,255,0.06);
-      background: #e9eefc;
-      flex-shrink: 0;
+    nav.topnav{
+      margin-top:16px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-block;
+      padding:8px 12px;
+      font-size:13px;
+      border-radius:8px;
+      text-decoration:none;
+      color:var(--accent);
+      border:1px solid rgba(11,99,255,0.12);
+      background:transparent;
     }
 
-    .title {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      width: 100%;
-    }
-
-    .title h1 {
-      margin: 0;
-      font-size: 20px;
-      letter-spacing: 0.2px;
-    }
-
-    .title p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    nav.topnav {
-      margin-top: 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 8px 12px;
-      font-size: 13px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: var(--accent);
-      border: 1px solid rgba(11,99,255,0.12);
-      background: transparent;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      background: rgba(11, 99, 255, 0.05);
-    }
-
-    .btn-nextpage {
-      position: relative;
-      display: inline-block;
-      padding: 8px 16px;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      color: white;
-      background: linear-gradient(135deg, #0b63ff, #4b9dff);
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.25);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      transition: 0.25s ease;
-      overflow: hidden;
-    }
-
-    .btn-nextpage:hover {
-      background: linear-gradient(135deg, #2e7dff, #66adff);
-      box-shadow: 0 4px 12px rgba(11,99,255,0.35);
-      transform: translateY(-2px);
-    }
-
-    .search-container {
-      margin-top: 16px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .search-input {
-      width: 240px;
-      padding: 8px 14px;
-      border-radius: 10px;
-      border: 1px solid rgba(0,0,0,0.15);
-      font-size: 14px;
-      outline: none;
-    }
-
-    .search-highlight {
-      background-color: yellow;
-      color: black;
-      border-radius: 2px;
-      padding: 0 2px;
-    }
-
-    main {
-      margin-top: 18px;
-      display: grid;
+    main{
+      margin-top:18px;
+      display:grid;
       grid-template-columns: 1fr 300px;
-      gap: 20px;
+      gap:20px;
     }
 
-    @media (max-width: 880px) {
-      main { grid-template-columns: 1fr; }
-      .rightcol { order: 0; }
+    @media (max-width:880px){
+      main{ grid-template-columns: 1fr; }
+      .rightcol{ order: -1; }
     }
 
-    .card {
-      background: var(--card);
-      padding: 18px;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(15,20,30,0.04);
+    .card{
+      background:var(--card);
+      padding:18px;
+      border-radius:12px;
+      box-shadow:0 6px 18px rgba(15,20,30,0.04);
     }
 
-    h2 { margin: 0 0 12px 0; font-size: 18px; }
-    p { color: var(--muted); margin: 0 0 12px 0; line-height: 1.5; }
-    ul { margin: 0 0 12px 1rem; color: var(--muted); }
-    .muted { color: var(--muted); font-size: 14px; }
+    h2{ margin:0 0 12px 0; font-size:18px; }
+    p{ color:var(--muted); margin:0 0 12px 0; line-height:1.5; }
+    ul{ margin:0 0 12px 1rem; color:var(--muted); }
+    .muted{ color:var(--muted); font-size:14px; }
 
-    .inline-list {
-      list-style-type: disc;
-      padding-left: 20px;
+    .project{
+      margin-bottom:12px;
+      padding-bottom:10px;
+      border-bottom:1px dashed rgba(0,0,0,0.04);
+    }
+    .project a{ color:var(--accent); text-decoration:none; font-weight:600; }
+    .small{ font-size:13px; color:var(--muted); }
+
+    .contact-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px; }
+    .contact-list a{ color:var(--accent); text-decoration:none; word-break:break-all; }
+
+    footer{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
     }
 
-    .inline-list li {
-      display: inline-block;
-      margin-right: 15px;
-    }
-
-    .project {
-      margin-bottom: 12px;
-      padding-bottom: 10px;
-      border-bottom: 1px dashed rgba(0,0,0,0.08);
-    }
-    .project a { color: var(--accent); text-decoration: none; font-weight: 600; }
-    .small { font-size: 13px; color: var(--muted); }
-
-    .contact-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
-    .contact-list a { color: var(--accent); text-decoration: none; word-break: break-all; }
-
-    .full-width-section {
-      width: 100%;
-      max-width: var(--max-width);
-      margin-top: 16px;
-    }
-
-    footer {
-      margin-top: 24px;
-      color: white;
-      font-size: 13px;
-      text-align: center;
-      padding-bottom: 20px;
-    }
-
-    .divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent); margin: 14px 0; border-radius: 2px; }
-
-    #google_translate_element {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      z-index: 999999 !important;
-      background: white;
-      padding: 6px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-
-    #backToTop {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 10px 14px;
-      font-size: 14px;
-      cursor: pointer;
-      border: none;
-      border-radius: 6px;
-      background-color: #007bff;
-      color: white;
-      display: none;
-      z-index: 1000;
-    }
+    /* subtle divider for sections */
+    .divider{ height:1px; background:linear-gradient(90deg, transparent, rgba(0,0,0,0.04), transparent); margin:14px 0; border-radius:2px; }
   </style>
 </head>
+
 
 <body>
 
 <div id="google_translate_element"></div>
 
-<div class="container">
-  <!-- HEADER -->
-  <header>
-    <img src="profile.jpg" alt="Rahul Das" class="avatar" onerror="this.style.display='none'">
-    <div class="title">
-      <h1>Rahul Das</h1>
-      <p>Researcher in Atomic and Molecular Optics with experience in ultracold atoms and optical systems.</p>
-      
-      <nav class="topnav">
-        <div class="nav-links">
-          <a class="btn" href="#projects">Selected Projects</a>
-          <a class="btn" href="#reports">Research Reports</a>
-          <a class="btn" href="#cv">CV</a>
-          <a class="btn" href="#contact">Contact</a>
-          <a class="btn" href="#quick-info">Quick Info</a>
-          <a class="btn" href="#courses">Courses</a>
-          <a class="btn" href="#contributions">Scholarly Contributions</a>
-          <a class="btn" href="#sample-space">Sample Space</a>
-        </div>
-        <div>
-          <a class="btn-nextpage" href="Next_Page.html">Research Page →</a>
-        </div>
-      </nav>
+<style>
+#google_translate_element {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 999999 !important;
+  background: white;
+  padding: 6px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+</style>
 
-      <!-- SEARCH BAR -->
-      <div class="search-container">
-        <input type="text" id="searchBox" onkeydown="handleSearchKey(event)" placeholder="Search website content..." class="search-input">
-        <button class="btn" onclick="searchPage()">Search</button>
-        <button class="btn" onclick="nextMatch()">Next</button>
-        <span id="searchCount" class="small"></span>
-      </div>
-    </div>
-  </header>
-
-  <!-- MAIN CONTENT GRID -->
-  <main>
-    <!-- Left Column -->
-    <section>
-      <div id="about" class="card">
-        <h2>About</h2>
-        <p>
-          I am a 22 year old physics student focused on experimental and computational atomic physics. My current work involves simulations of cold-atom dynamics, numerical modelling of trapping potentials, and related projects in atomic and quantum physics.
-        </p>
-
-        <div class="divider"></div>
-
-        <h2>Research Interests</h2>
-        <ul class="inline-list">
-          <li>Atomic & Molecular Physics</li>
-          <li>Ultracold Atoms</li>
-          <li>Computational Physics</li>
-          <li>Quantum Optics</li>
-          <li>Spectroscopy</li>
-        </ul>
-      </div>
-
-      <div id="projects" class="card" style="margin-top:16px;">
-        <h2>Selected Projects</h2>
-        <div class="project">
-          <a href="https://github.com/rahul20221111-ship-it/Maxwell_Boltmann_Simulation" target="_blank" rel="noopener">
-            Simulation of Ultracold Atoms in a Harmonic Trap Under Sudden Quenches
-          </a>
-          <div class="small">
-            YouTube Video Animation: 
-            <a href="https://www.youtube.com/watch?v=VNcBVEtpqXA" target="_blank" rel="noopener">Demonstration</a>
-          </div>
-        </div>
-      </div>
-
-      <div id="reports" class="card" style="margin-top:16px;">
-        <h2>Research Reports and Pre-prints</h2>
-        <p class="muted">Selected Reports</p>
-        <div class="pub">
-          <p><strong>1. R. Das, K. Gope</strong>, 
-          <em>A Classical Perspective on Dissociative Electron Attachment in Ozone: Pedagogical Insights</em>, 
-          Zenodo Preprint, v1 (2025).<br>
-          DOI: <a href="https://doi.org/10.5281/zenodo.16575140" target="_blank">10.5281/zenodo.16575140</a>
-          </p>
-        </div>
-        <div class="pub">
-          <p><strong>2. R. Das, L. Khaykovich</strong>,
-          <em>Design and Characterization of Essential Components for a Magneto-Optical Trap</em>, 
-          Zenodo Preprint, v2 (2025).<br>
-          DOI: <a href="https://doi.org/10.5281/zenodo.16758110" target="_blank">10.5281/zenodo.16758110</a>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Right Sidebar -->
-    <aside class="rightcol">
-      <div id="cv" class="card">
-        <h2>CV</h2>
-        <p class="muted">Download my academic CV (PDF):</p>
-        <p><a class="btn" href="cv.pdf" target="_blank" rel="noopener">Download CV (cv.pdf)</a></p>
-      </div>
-
-      <div id="contact" class="card" style="margin-top:16px;">
-        <h2>Contact</h2>
-        <ul class="contact-list">
-          <li><span class="small">Email:</span> <a href="mailto:rahul_20221111@students.iisertirupati.ac.in">rahul_20221111@students.iisertirupati.ac.in</a></li>
-          <li><span class="small">GitHub:</span> <a href="https://github.com/rahul20221111-ship-it" target="_blank" rel="noopener">github.com/rahul20221111-ship-it</a></li>
-        </ul>
-      </div>
-
-      <div id="quick-info" class="card" style="margin-top:16px;">
-        <h2>Quick Info</h2>
-        <p class="muted">
-          ORCID ID: <a href="https://orcid.org/0009-0001-7070-9029" target="_blank">0009-0001-7070-9029</a>
-        </p>
-        <p class="muted">
-          Google Scholar: <a href="https://scholar.google.com/citations?user=RLBk-zsAAAAJ&hl=en&authuser=1" target="_blank">Scholar Profile</a>
-        </p>
-        <p class="muted">
-          ResearchGate: <a href="https://www.researchgate.net/profile/Rahul-Das-52" target="_blank">ResearchGate Profile</a>
-        </p>
-      </div>
-
-      <div id="courses" class="card" style="margin-top:16px;">
-        <h2>List Of Courses</h2>
-        <p class="muted">Download my list of courses (PDF):</p>
-        <p>
-          <a class="btn" href="排序后的成绩单.pdf" target="_blank" rel="noopener">
-            Download List Of Courses
-          </a>
-        </p>
-      </div>
-    </aside>
-  </main>
-
-  <!-- FULL WIDTH LOWER SECTIONS -->
-  <section id="contributions" class="full-width-section">
-    <div class="card">
-      <h2 style="color:#800000; font-weight:600; margin-bottom:12px;">
-        <span style="display:inline-block; width:1em; height:1.5pt; background:#800000; position:relative; top:-0.3em; margin-right:6px;"></span>
-        Review and Scholarly Contributions
-      </h2>
-      <ul style="list-style:none; padding-left:2.7em; margin:0;">
-        <li style="position:relative; line-height:1.6;">
-          <span style="position:absolute; left:-2em; color:#800000; font-weight:bold;">—</span>
-          <b>Editorial inconsistency identified in a standard quantum mechanics textbook</b> — 
-          Identified an additional multiplicative factor in the radial wavefunction expression for the hydrogen atom in the South Asia edition of 
-          <b>David J. Griffiths and Darrell F. Schroeter, <i>Introduction to Quantum Mechanics</i></b> 
-          (3rd ed., Cambridge University Press, ISBN: <a href="https://www.bookfinder.com/search/?isbn=9781108791106" target="_blank">978-1-108-79110-6</a>). 
-          <b>The discrepancy has been formally acknowledged by the publisher and is being corrected in subsequent printings.</b>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="sample-space" class="full-width-section">
-    <div class="card">
-      <h2>Sample Space</h2>
-      <p class="muted">Hello Testing !!</p>
-    </div>
-  </section>
-
-  <section id="acknowledgements" class="full-width-section">
-    <div class="card" style="text-align:center;">
-      <h2 style="margin-bottom:24px; color:#800000; font-weight:600;">With support from</h2>
-      <div style="display:flex; justify-content:center; align-items:center; gap:60px; flex-wrap:wrap;">
-        <img src="IISER_Tirupati_logo.png" alt="IISER Tirupati" style="height:95px; width:auto; object-fit:contain;">
-        <img src="ISF.jpg" alt="Israel Science Foundation" style="height:85px; width:auto; object-fit:contain;">
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © Rahul Das — updated as of <span id="lastUpdated"></span>
-  </footer>
-</div>
-
-<!-- BACK TO TOP BUTTON -->
-<button id="backToTop">⬆ Back to Top</button>
-
-<!-- SCRIPTS -->
 <script type="text/javascript">
 function googleTranslateElementInit() {
   new google.translate.TranslateElement(
@@ -447,90 +284,557 @@ function googleTranslateElementInit() {
   );
 }
 </script>
-<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script src="https://cdn.jsdelivr.net/npm/mark.js/dist/mark.min.js"></script>
 
+<script
+src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+</script>
+
+<div class="container">
+
+    <header>
+      <!-- Replace profile.jpg with the filename you upload to the repo (or remove <img> if you don't want an image) -->
+      <img src="profile.jpg" alt="Rahul Das" class="avatar" onerror="this.style.display='none'">
+      <div class="title">
+        <h1>Rahul Das</h1>
+        <p>Researcher in Atomic and Molecular Optics with experience in ultracold atoms and optical
+systems.</p>
+<nav class="topnav" style="
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+">
+
+  <!-- FIRST LINE: all buttons in one row -->
+  <div style="
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content:center;
+    gap:8px;
+    width:100%;
+  ">
+    <a class="btn" href="#projects">Selected Projects</a>
+    <a class="btn" href="#Research Reports and Pre-prints">Research Reports and Pre-prints</a>
+    <a class="btn" href="#cv">CV</a>
+    <a class="btn" href="#contact">Contact</a>
+    <a class="btn" href="#Quick Info">Quick Info</a>
+    <a class="btn" href="#List Of Courses">List Of Courses</a>
+    <a class="btn" href="#Review and Scholarly Contributions">Review and Scholarly Contributions</a>
+    <a class="btn" href="#Publications/ Under Review">Publications/ Under Review</a>
+  </div>
+
+  <!-- SECOND LINE: Research Page -->
+  <div style="display:flex; justify-content:center;">
+    <a class="btn-nextpage" href="Next_Page.html">Research Page →</a>
+  </div>
+
+</nav>
+
+
+
+<!-- SEARCH BAR -->
+
+
+<div style="
+  margin-top:16px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+">
+
+<input
+  type="text"
+  id="searchBox"
+  onkeydown="handleSearchKey(event)"
+    placeholder="Search website content..."
+    style="
+      width:260px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:1px solid rgba(0,0,0,0.15);
+      font-size:14px;
+      outline:none;
+    "
+  >
+
+  <button class="btn" onclick="searchPage()">
+    Search
+  </button>
+
+  <button class="btn" onclick="nextMatch()">
+    Next
+  </button>
+
+  <span id="searchCount" class="small"></span>
+
+</div>
+
+
+
+
+      </div>
+    </header>
+
+    <main>
+      <!-- Left column: main content -->
+      <section>
+        <div id="about" class="card">
+          <h2>About</h2>
+          <p>
+            I am a physics student focused on experimental and computational atomic physics. My current work involves simulations of cold-atom dynamics, numerical modelling of trapping potentials, and related projects in atomic and quantum physics.
+          </p>
+
+<div class="divider"></div>
+
+<h2 id="research">Research Interests</h2>
+
+<ul class="inline-list">
+  <li>Atomic & Molecular Physics</li>
+  <li>Ultracold Atoms</li>
+  <li>Computational Physics</li>
+  <li>Quantum Optics</li>
+  <li>Spectroscopy</li>
+</ul>
+        <div id="projects" class="card" style="margin-top:16px;">
+          <h2>Selected Projects</h2>
+<div class="project">
+  <a href="https://github.com/rahul20221111-ship-it/Maxwell_Boltmann_Simulation" 
+     target="_blank" rel="noopener">
+    Simulation of Ultracold Atoms in a Harmonic Trap Under Sudden Quenches
+  </a>
+  
+  <div class="small">
+    YouTube Video Animation: 
+    <a href="https://www.youtube.com/watch?v=VNcBVEtpqXA" target="_blank" rel="noopener">
+      YouTube Demonstration
+    </a>
+  </div>
+</div>
+
+
+        <div id="Research Reports and Pre-prints" class="card" style="margin-top:16px;">
+<h2>Research Reports and Pre-prints</h2>
+<p class="muted">Selected Reports</p>
+
+<div class="pub">
+  <p><strong>1. R. Das, K. Gope</strong>, 
+  <em>A Classical Perspective on Dissociative Electron Attachment in Ozone: Pedagogical Insights</em>, 
+  Zenodo Preprint, v1 (2025).<br>
+  DOI: <a href="https://doi.org/10.5281/zenodo.16575140" target="_blank">10.5281/zenodo.16575140</a>
+  </p>
+</div>
+
+<div class="pub">
+  <p><strong>2. R. Das, L. Khaykovich</strong>,
+  <em>Design and Characterization of Essential Components for a Magneto-Optical Trap</em>, 
+  Zenodo Preprint, v2 (2025).<br>
+  DOI: <a href="https://doi.org/10.5281/zenodo.16758110" target="_blank">10.5281/zenodo.16758110</a>
+  </p>
+</div>
+        </div>
+      </section>
+
+      <!-- Right column: CV + contact -->
+      <aside class="rightcol">
+        <div id="cv" class="card">
+          <h2>CV</h2>
+          <p class="muted">Download my academic CV (PDF):</p>
+          <!-- Upload cv.pdf to the repo root -->
+          <p><a class="btn" href="cv.pdf" target="_blank" rel="noopener">Download CV (cv.pdf)</a></p>
+        </div>
+
+        <div id="contact" class="card" style="margin-top:36px;">
+          <h2>Contact</h2>
+          <ul class="contact-list">
+            <!-- Replace with your email. Use the exact string you want visible. -->
+            <li><span class="small">Email:</span> <a href="mailto:rahul_20221111@students.iisertirupati.ac.in">rahul_20221111@students.iisertirupati.ac.in</a></li>
+
+            <!-- GitHub: link to your profile -->
+            <li><span class="small">GitHub:</span> <a href="https://github.com/rahul20221111-ship-it" target="_blank" rel="noopener">github.com/rahul20221111-ship-it</a></li>
+  
+        </div>
+
+        <div id="Quick Info" class="card" style="margin-top:41px;">
+          <h2>Quick Info</h2>
+<p class="muted">
+  ORCID ID: 
+  <a href="https://orcid.org/0009-0001-7070-9029" target="_blank">
+0009-0001-7070-9029
+  </a>
+</p>
+
+<p class="muted">
+  Google Scholar:
+  <a href="https://scholar.google.com/citations?user=RLBk-zsAAAAJ&hl=en&authuser=1" target="_blank">
+    Scholar Profile
+  </a>
+</p>
+
+<p class="muted">
+  ResearchGate:
+  <a href="https://www.researchgate.net/profile/Rahul-Das-52" target="_blank">
+    ResearchGate Profile
+  </a>
+</p>
+        </div>
+
+
+<aside class="rightcol">
+  <div id="List Of Courses" class="card" style="margin-top:48px;">
+    <section>
+      <h2>List Of Courses</h2>
+      <p class="muted">Download my list of courses (PDF):</p>
+
+      <p>
+        <a class="btn"
+           href="排序后的成绩单.pdf"
+           target="_blank"
+           rel="noopener">
+           Download List Of Courses
+        </a>
+      </p>
+  </div>
+
+      </aside>
+    </main>
+
+
+
+
+
+
+
+<section id="Review and Scholarly Contributions" style="margin-top:16px;">
+  <div class="card" style="
+      max-width:900px;
+      margin:0 auto;
+      border-radius:12px;
+      background:#ffffff;
+      padding:20px 24px;
+  ">
+
+    <h2 style="color:#800000; font-weight:600; margin-bottom:12px;">
+      <span style="
+        display:inline-block;
+        width:1em;
+        height:1.5pt;
+        background:#800000;
+        position:relative;
+        top:-0.3em;
+        margin-right:6px;
+      "></span>
+      Review and Scholarly Contributions
+    </h2>
+
+    <ul style="
+      list-style:none;
+      padding-left:2.7em;
+      margin:0;
+    ">
+
+      <li style="position:relative; line-height:1.6;">
+        <span style="
+          position:absolute;
+          left:-2em;
+          color:#800000;
+          font-weight:bold;
+        ">—</span>
+
+        <b>Editorial inconsistency identified in a standard quantum mechanics textbook</b> — 
+        Identified an additional multiplicative factor in the radial wavefunction expression 
+        for the hydrogen atom in the South Asia edition of <b> David J. Griffiths and 
+        Darrell F. Schroeter, <i>Introduction to Quantum Mechanics</i> </b>
+        (3rd ed., Cambridge University Press, 
+        ISBN: <a href="https://www.bookfinder.com/search/?isbn=9781108791106">
+        978-1-108-79110-6</a>). 
+        <b>The discrepancy has been formally acknowledged by the publisher and is being 
+        corrected in subsequent printings.</b>
+      </li>
+
+<li style="position:relative; line-height:1.6;">
+  <span style="
+    position:absolute;
+    left:-2em;
+    color:#800000;
+    font-weight:bold;
+  ">—</span>
+
+  <b>NIST ASD Correction:</b>
+  During relativistic structure calculations for Tc II, identified a LS
+  term-designation error in the
+  <a href="https://physics.nist.gov/asd" target="_blank">
+    <b>NIST Atomic Spectra Database</b>
+  </a>;
+  the correction was reviewed and accepted by
+  <a href="https://scholar.google.com/citations?user=rSymaggAAAAJ&hl=en" target="_blank">
+    <b>Dr. Yuri Ralchenko</b>
+  </a>
+  (NIST) for inclusion in a forthcoming database revision (2026).
+  <br>
+  <b><i>Reported: 28<sup>th</sup> June 2026; Accepted: 30<sup>th</sup> June 2026</i></b>
+</li>
+
+
+
+    </ul>
+
+  </div>
+</section>
+
+
+
+
+
+
+<section id="Publications/ Under Review" style="margin-top:16px;">
+  <div class="card" style="
+    max-width:900px;
+    margin:0 auto;
+    border-radius:12px;
+  ">
+    <section>
+      <h2>Publications/ Under Review</h2>
+        <p><strong>1. R. Das, I. Suresh, and R. K. Gangwar</strong>,
+  <em>Calculation of electron impact excitation cross sections and
+  collisional radiative modeling of singly ionized Technetium (Tc II) for astrophysical modeling & plasma
+  spectroscopy</em>
+</p>
+    </section>
+  </div>
+</section>
+
+
+
+
+
+<section id="acknowledgements" style="margin-top:16px;">
+  <div class="card" style="
+    max-width:900px;
+    margin:0 auto;
+    border-radius:12px;
+    text-align:center;
+  ">
+
+    <h2 style="
+      margin-bottom:24px;
+      color:#800000;
+      font-weight:600;
+    ">
+      With support from
+    </h2>
+
+    <div style="
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:60px;
+      flex-wrap:wrap;
+    ">
+
+      <!-- IISER Tirupati Logo -->
+      <img 
+        src="IISER_Tirupati_logo.png"
+        alt="IISER Tirupati"
+        style="
+          height:95px;
+          width:auto;
+          object-fit:contain;
+        "
+      >
+
+      <!-- ISF Logo -->
+      <img 
+        src="ISF.jpg"
+        alt="Israel Science Foundation"
+        style="
+          height:85px;
+          width:auto;
+          object-fit:contain;
+        "
+      >
+ <!-- ISF Logo -->
+      <img 
+        src="Alexander_Von_Humbolt.png"
+        alt="Alexander von Humboldt"
+        style="
+          height:85px;
+          width:auto;
+          object-fit:contain;
+        "
+      >
+
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+<footer>
+  <div class="small">
+    © Rahul Das — updated as of <span id="lastUpdated"></span>
+  </div>
+</footer>
+
+  <!-- Optional small JS to smooth-scroll internal links -->
+  <script>
+    (function(){
+      document.querySelectorAll('a[href^="#"]').forEach(function(link){
+        link.addEventListener('click', function(e){
+          var target = document.querySelector(this.getAttribute('href'));
+          if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+        });
+      });
+    })();
+  </script>
 <script>
-  // Smooth Scrolling
-  document.querySelectorAll('a[href^="#"]').forEach(function(link){
-    link.addEventListener('click', function(e){
-      var target = document.querySelector(this.getAttribute('href'));
-      if(target){ 
-        e.preventDefault(); 
-        target.scrollIntoView({behavior:'smooth', block:'start'}); 
-      }
-    });
-  });
-
-  // Dynamic Date
   const date = new Date();
   const day   = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
   const year  = date.getFullYear();
+
   document.getElementById("lastUpdated").textContent = `${day}-${month}-${year}`;
+</script>
 
-  // In-Page Search Logic
-  let currentIndex = 0;
-  let results = [];
-  let lastSearch = "";
-  const instance = new Mark(document.body);
 
-  function searchPage() {
-    const keyword = document.getElementById("searchBox").value.trim();
-    if(!keyword) return;
 
-    lastSearch = keyword;
-    instance.unmark({
-      done: function() {
-        instance.mark(keyword, {
-          separateWordSearch: false,
-          className: "search-highlight",
-          done: function() {
-            results = document.querySelectorAll(".search-highlight");
-            document.getElementById("searchCount").textContent = results.length + " matches found";
-            currentIndex = 0;
-            if(results.length > 0) {
-              jumpToResult(currentIndex);
-            }
+<script src="https://cdn.jsdelivr.net/npm/mark.js/dist/mark.min.js"></script>
+
+<script>
+
+let currentIndex = 0;
+let results = [];
+let lastSearch = "";
+
+const instance = new Mark(document.body);
+
+function searchPage() {
+
+  const keyword =
+    document.getElementById("searchBox")
+    .value
+    .trim();
+
+  if(!keyword) return;
+
+  lastSearch = keyword;
+
+  instance.unmark({
+
+    done: function() {
+
+      instance.mark(keyword, {
+
+        separateWordSearch: false,
+
+        className: "search-highlight",
+
+        done: function() {
+
+          results =
+            document.querySelectorAll(".search-highlight");
+
+          document.getElementById("searchCount")
+            .textContent =
+            results.length + " matches found";
+
+          currentIndex = 0;
+
+          if(results.length > 0) {
+            jumpToResult(currentIndex);
           }
-        });
-      }
-    });
-  }
 
-  function jumpToResult(index) {
-    results[index].scrollIntoView({ behavior: "smooth", block: "center" });
-    results[index].style.background = "orange";
-    setTimeout(() => {
-      results[index].style.background = "yellow";
-    }, 700);
-  }
+        }
 
-  function nextMatch() {
-    if(results.length === 0) return;
-    currentIndex++;
-    if(currentIndex >= results.length) { currentIndex = 0; }
-    jumpToResult(currentIndex);
-  }
+      });
 
-  function handleSearchKey(event) {
-    if(event.key === "Enter") {
-      const keyword = document.getElementById("searchBox").value.trim();
-      if(keyword !== lastSearch) {
-        searchPage();
-      } else {
-        nextMatch();
-      }
     }
+
+  });
+
+}
+
+function jumpToResult(index) {
+
+  results[index].scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+
+  results[index].style.background = "orange";
+
+  setTimeout(() => {
+    results[index].style.background = "yellow";
+  }, 700);
+
+}
+
+function nextMatch() {
+
+  if(results.length === 0) return;
+
+  currentIndex++;
+
+  if(currentIndex >= results.length) {
+    currentIndex = 0;
   }
 
-  // Back to Top Button Logic
+  jumpToResult(currentIndex);
+
+}
+
+function handleSearchKey(event) {
+
+  if(event.key === "Enter") {
+
+    const keyword =
+      document.getElementById("searchBox")
+      .value
+      .trim();
+
+    if(keyword !== lastSearch) {
+
+      searchPage();
+
+    } else {
+
+      nextMatch();
+
+    }
+
+  }
+
+}
+
+</script>
+
+<button id="backToTop">⬆ Back to Top</button>
+
+<script>
   const btn = document.getElementById("backToTop");
+
   window.addEventListener("scroll", () => {
-    btn.style.display = window.scrollY > 200 ? "block" : "none";
+
+    if (window.scrollY > 200) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+
   });
+
   btn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
   });
 </script>
 
